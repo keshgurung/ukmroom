@@ -1,13 +1,13 @@
-import express from "express";
-import mongoose from "mongoose";
+import express from 'express'
+import mongoose from 'mongoose'
 import { port, dbURI } from './config/environment.js'
 import router from './config/router.js'
 
-const app = express ()
+const app = express()
 
 
 const startServers = async() => {
-  try{
+  try {
 
     // mongoose connect
     await mongoose.connect(dbURI)
@@ -23,14 +23,13 @@ const startServers = async() => {
     app.use('/api',router)
 
     app.use((_req, res)=>{
-      res.status(404).json({message: 'route not found here'})
+      res.status(404).json({ message: 'route not found here' })
     })
 
     app.listen(port, ()=> 
-    console.log(`server up and running on port ${port}`)
+      console.log(`server up and running on port ${port}`)
     )
-  }
-  catch (err) {
+  } catch (err) {
     console.log('something is wrong', err)
   }
 }
