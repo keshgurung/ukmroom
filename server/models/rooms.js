@@ -4,6 +4,8 @@ import uniqueValidator from 'mongooseUniqueValidator'
 
 const roomSchema = new mongoose.Schema(
   {
+    // adding a user
+    owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
     //about the property
     addressFirst: { type: String, required: true },
     addressCity: { type: String, required: true },
