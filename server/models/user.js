@@ -6,10 +6,9 @@ const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  number: {type: Number, required: true},
+  number: { type: Number, required: true },
+  rooms: [],
 })
-
-
 
 // REMOVE PASSWORD WHEN RETURNING USER AS JSON
 userSchema.set('toJSON', {
@@ -17,7 +16,7 @@ userSchema.set('toJSON', {
   transform(_doc, json) {
     delete json.password // delete password key from JSON object
     return json // return the rest of the object
-  }
+  },
 })
 
 // VIRTUAL FIELD
