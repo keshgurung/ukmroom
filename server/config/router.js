@@ -11,6 +11,7 @@ import {
   getSingleRoom,
   editRoom,
   deleteRoom,
+  searchRooms,
 } from '../controllers/rooms.js'
 import { secureRoute } from './secureRoute.js'
 
@@ -25,5 +26,7 @@ router
   .get(getSingleRoom)
   .put(secureRoute, editRoom)
   .delete(secureRoute, deleteRoom)
+
+router.route('/search/:key').get(searchRooms)
 
 export default router

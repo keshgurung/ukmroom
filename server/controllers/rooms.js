@@ -72,3 +72,21 @@ export const deleteRoom = async (req, res) => {
     return res.status(404).json({ message: err.message })
   }
 }
+
+// find rooms via search
+
+export const searchRooms = async (req, res) => {
+  const { key } = req.params
+  try {
+    const results = await Room.find({
+      $or: [
+        { addressCity: { $regex: key } },
+        // {addressCity : { $regex: req.params.key }} can add multiple here
+      ],
+    })
+    if (!results) throw new Error('cant find any rooms in that location')
+    return res.status(200).json(results)
+  } catch (err) {
+    return res.status(400).json({ message: err.message })
+  }
+}
