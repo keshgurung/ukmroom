@@ -5,7 +5,7 @@ import { secret } from '../config/environment.js'
 export const registerUser = async (req, res) => {
   try {
     const newUser = await User.create(req.body)
-    return res.status(202).json({ message: `Welcome ${newUser.username}` })
+    return res.status(202).json({ message: `Welcome ${newUser.firstname}` })
   } catch (err) {
     console.log(err)
     return res.status(422).json(err)
@@ -23,13 +23,11 @@ export const loginUser = async (req, res) => {
     })
     const userId = userToLogin._id
 
-    return res
-      .status(200)
-      .json({
-        message: `Welcome back ${userToLogin.username}`,
-        token: token,
-        userId: userId,
-      })
+    return res.status(200).json({
+      message: `Welcome back ${userToLogin.firstname}`,
+      token: token,
+      userId: userId,
+    })
   } catch (err) {
     console.log(err)
     return res.status(422).json({ message: 'Unauthorised' })

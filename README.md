@@ -28,3 +28,14 @@ this is a fullstack MERN room renting app.
 - user.js - user schema
 
 - server.js - main file
+
+## Client :
+
+- creating a next app: `npx create-next-app`
+- to run the project `npm run dev`
+
+- creating react app `npx create-react-app ukmaroom `
+- UI - Material UI
+- `npm install react-router-dom@6` - routing
+- Connecting frontend to server, add in package.json in frontend ` "proxy": "http://localhost:4000"`
+- Alternatively installing `npm install http-proxy-middleware --save` and creating a src/setupProxy.js file
