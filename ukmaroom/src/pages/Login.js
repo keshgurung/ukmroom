@@ -24,7 +24,7 @@ const Login = ({ setIsLoggedIn }) => {
     setUserId(userId)
     setIsLoggedIn(true)
     setIsError(false)
-    navigate('/')
+    navigate('/home')
   }
   const handleError = (error) => {
     if (error.response) {
@@ -39,6 +39,7 @@ const Login = ({ setIsLoggedIn }) => {
       [name]: value,
     })
   }
+  console.log(errorInfo)
 
   const formInputProps = { data, errorInfo, handleFormChange }
 

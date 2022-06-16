@@ -4,6 +4,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Login from './pages/Login'
 import { getToken } from './helpers/auth'
+import Home from './pages/Home'
+import Register from './pages/Register'
+import RegisterSuccess from './pages/RegisterSuccess'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -24,9 +27,10 @@ function App() {
         <header className="App-header">
           <Routes>
             {/* <Route path='/register' component={Register} />  old way of expressing react route */}
-
-            {/* <Route path="/login" element={<Login />} /> */}
             <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/success" element={<RegisterSuccess />} />
           </Routes>
         </header>
       </div>
