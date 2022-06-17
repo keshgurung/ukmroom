@@ -101,7 +101,7 @@ const Register = () => {
         </div>
         {isError ? (
           <div className="error">
-            <p>there is error </p>
+            <p>{errorInfo.message} </p>
           </div>
         ) : (
           <></>

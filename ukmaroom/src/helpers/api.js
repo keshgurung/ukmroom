@@ -3,6 +3,69 @@ import { getToken } from './auth'
 
 const baseUrl = '/api'
 
+export const getAllRooms = async () => {
+  const config = {
+    method: 'get',
+    url: `${baseUrl}/getallrooms`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }
+
+  const response = await axios(config)
+  return response.data
+}
+
+export const getSingleRoom = async (id) => {
+  const config = {
+    method: 'get',
+    url: `${baseUrl}/getsingleroom/${id}`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }
+  const response = await axios(config)
+  return response.data
+}
+
+export const addRoom = async (data) => {
+  const config = {
+    method: 'post',
+    url: `${baseUrl}/addaroom`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+    data,
+  }
+  const response = await axios(config)
+  return response.data
+}
+
+export const editRoom = async (id, data) => {
+  const config = {
+    method: 'put',
+    url: `${baseUrl}/getsingleroom/${id}`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+    data,
+  }
+  const response = await axios(config)
+  return response.data
+}
+
+export const deleteRoom = async (id) => {
+  const config = {
+    method: 'put',
+    url: `${baseUrl}/getsingleroom/${id}`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }
+  const response = await axios(config)
+  return response.data
+}
+
 export const login = async (data) => {
   return makeAxiosRequest('/login', data)
 }

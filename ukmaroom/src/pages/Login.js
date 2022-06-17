@@ -64,7 +64,7 @@ const Login = ({ setIsLoggedIn }) => {
         </div>
         {isError ? (
           <div className="error">
-            <p>There appears to have been an error. Please try again.</p>
+            <p>The login credintials do not match. Please try again !!!</p>
           </div>
         ) : (
           <></>
